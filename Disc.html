@@ -1,0 +1,357 @@
+<HTML>
+<HEAD>
+<TITLE> Плейлисты и синглы </TITLE>
+<link rel="icon" type="image/jpeg" href="jpg.png">
+<style>
+    body {
+        font-family: Tahoma, sans-serif;
+        background-image: url('sesh.jpg');
+        background-repeat: repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+        color: black;
+        min-height: 100vh;
+        padding-top: 100px;
+    }
+    .nav-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background-color: #000000;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        display: flex;
+        align-items: center;
+        z-index: 1000;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    .logo-container {
+    }
+    .logo {
+        height: 80px;
+        width: auto;
+    }
+    .nav-links {
+        display: flex;
+        gap: 5px;
+        margin-left: 20px;
+    }
+    .nav-links a {
+        display: inline-block;
+        padding: 12px 20px;
+        text-decoration: none;
+        color: #FFFFFF;
+        font-size: 15px;
+        font-weight: bold;
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, text-shadow 0.3s ease;
+        box-sizing: border-box;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+    }
+    .nav-links a:hover {
+        background-color: rgba(106, 10, 130, 0.6);
+        color: #FFFFFF;
+        border-color: #9370DB;
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    }
+    .nav-links a:active,
+    .nav-links a[aria-current="page"] {
+        background-color: rgba(50, 0, 100, 0.8);
+        color: #FFFFFF;
+        border-color: #FFFFFF;
+        font-style: italic;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+    }
+    .content-wrapper {
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.85);
+        border-radius: 8px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        margin: 0 20px 20px 20px;
+        color: black;
+    }
+    .content p {
+        font-family: Tahoma, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        color: #000000;
+    }
+    .highlight-name {
+        font-weight: bold;
+        color: #4B0082;
+    }
+    .highlight-term {
+        font-style: italic;
+        font-weight: bold;
+        color: #800080;
+    }
+    .highlight-concept {
+        background-color: #f0f0f0;
+        padding: 2px 4px;
+        border-radius: 3px;
+        font-weight: bold;
+        color: #000000;
+    }
+    .footer {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .footer font {
+        font-size: 12px;
+        color: #000000;
+    }
+    .content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h1 {
+        text-align: center;
+        font-size: 28px;
+        color: #4B0082;
+        letter-spacing: 1px;
+        margin: 20px 0;
+    }
+    h2 {
+        text-align: center;
+        font-size: 24px;
+        color: #6A5ACD;
+        margin: 15px 0;
+    }
+    .album-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        border: 2px solid #4B0082;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: rgba(248, 248, 255, 0.8);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .album-table th, .album-table td {
+        padding: 15px 10px;
+        text-align: center;
+        vertical-align: middle;
+        border: none;
+        font-size: 17px;
+        color: #000000;
+    }
+    .album-table th {
+        background-color: rgba(75, 0, 130, 0.7);
+        font-weight: bold;
+        color: white;
+        font-size: 18px;
+    }
+    .album-table tr {
+        border-bottom: 1px solid #d0d0e0;
+    }
+    .album-table tr:last-child {
+        border-bottom: none;
+    }
+    .album-table tr:hover {
+        background-color: rgba(230, 230, 250, 0.7);
+    }
+    .album-info-cell {
+        width: 30%;
+        text-align: left;
+        padding-left: 20px;
+    }
+    .album-year-cell {
+        width: 10%;
+        text-align: center;
+        font-weight: bold;
+        color: #4B0082;
+        font-size: 17px;
+    }
+    .album-embed-cell {
+        width: 30%;
+        text-align: center;
+        padding: 10px;
+    }
+    .album-cover-cell {
+        width: 30%;
+        text-align: center;
+        padding: 10px;
+    }
+    .album-cover {
+        max-width: 100%;
+        height: auto;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border: 2px solid #4B0082;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .listen-button {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: bold;
+        background: linear-gradient(to bottom, #4B0082, #2E0854);
+        border: 2px solid #9370DB;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        cursor: pointer;
+        text-align: center;
+    }
+    .listen-button:hover {
+        background: linear-gradient(to bottom, #6A5ACD, #4B0082);
+        color: #FFFFFF;
+        border-color: #BA55D3;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        transform: translateY(-3px);
+    }
+    .listen-button:active {
+        background: linear-gradient(to bottom, #2E0854, #1A0430);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        transform: translateY(1px);
+    }
+    .album-info-cell .artist {
+        font-weight: bold;
+        color: #4B0082;
+        font-size: 17px;
+        margin: 0;
+        line-height: 1.2;
+        display: inline;
+    }
+    .album-info-cell .separator {
+        color: #000000;
+        margin: 0 4px;
+        font-size: 17px;
+        display: inline;
+    }
+    .album-info-cell .title {
+        font-style: italic;
+        color: #6A5ACD;
+        font-size: 17px;
+        margin: 0;
+        line-height: 1.2;
+        display: inline;
+    }
+</style>
+</HEAD>
+<BODY>
+<font color="black">
+<div class="nav-wrapper">
+    <div class="logo-container">
+        <img src="logo.png" alt="Логотип" class="logo">
+    </div>
+    <div class="nav-links">
+        <a href="index.html"> Главная</a>
+        <a href= Info.html>Общая информация</a>
+        <a href= History.html> История</a>
+        <a href= Film.html> Видеоролик</a>
+        <a aria-current="page"> Плейлисты и синглы</a>
+        <a href= Link.html> Источники</a>
+        <a href= Shop.html> Заказать</a>
+        <a href= Contact.html> Контакты</a>
+    </div>
+</div>
+
+<div class="content-wrapper">
+<div class="content">
+    <h1>Музыка <span class="highlight-name">BONES</span></h1>
+    <h2>Альбомы и синглы</h2>
+
+    <table class="album-table">
+        <thead>
+            <tr>
+                <th class="album-info-cell">Исполнитель - Название</th>
+                <th class="album-year-cell">Год</th>
+                <th class="album-cover-cell">Обложка</th>
+                <th class="album-embed-cell">Слушать</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="album-info-cell">
+                    <span class="artist">BONES</span><span class="separator">&nbsp;-&nbsp;</span><span class="title">SCUMBAG</span>
+                </td>
+                <td class="album-year-cell">2013</td>
+                <td class="album-cover-cell">
+                    <img src="Dirt.jpg" alt="Обложка альбома SCUMBAG" class="album-cover">
+                </td>
+                <td class="album-embed-cell">
+                    <a href="https://music.yandex.ru/album/6360672" class="listen-button" target="_blank">Слушать</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="album-info-cell">
+                    <span class="artist">BONES & Lyson</span><span class="separator">&nbsp;-&nbsp;</span><span class="title">REMAINS</span>
+                </td>
+                <td class="album-year-cell">2020</td>
+                <td class="album-cover-cell">
+                    <img src="REMAINS.jpg" alt="Обложка альбома REMAINS" class="album-cover">
+                </td>
+                <td class="album-embed-cell">
+                    <a href="https://music.yandex.ru/album/10919991" class="listen-button" target="_blank">Слушать</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="album-info-cell">
+                    <span class="artist">BONES</span><span class="separator">&nbsp;-&nbsp;</span><span class="title">UNRENDERED</span>
+                </td>
+                <td class="album-year-cell">2017</td>
+                <td class="album-cover-cell">
+                    <img src="UNRENDERED.jpg" alt="Обложка альбома UNRENDERED" class="album-cover">
+                </td>
+                <td class="album-embed-cell">
+                    <a href="https://music.yandex.ru/album/6360221" class="listen-button" target="_blank">Слушать</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="album-info-cell">
+                    <span class="artist">BONES</span><span class="separator">&nbsp;-&nbsp;</span><span class="title">Dirt</span>
+                </td>
+                <td class="album-year-cell">2020</td>
+                <td class="album-cover-cell">
+                    <img src="Dirt.jpg" alt="Обложка альбома Dirt" class="album-cover">
+                </td>
+                <td class="album-embed-cell">
+                    <a href="https://music.yandex.ru/track/47042423" class="listen-button" target="_blank">Слушать</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="album-info-cell">
+                    <span class="artist">BONES & Drew The Architect</span><span class="separator">&nbsp;-&nbsp;</span><span class="title">PvP</span>
+                </td>
+                <td class="album-year-cell">2020</td>
+                <td class="album-cover-cell">
+                    <img src="PvP.jpg" alt="Обложка альбома PvP" class="album-cover">
+                </td>
+                <td class="album-embed-cell">
+                    <a href="https://music.yandex.ru/album/10495575" class="listen-button" target="_blank">Слушать</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div class="footer">
+    <hr align=center width=50% size=1 color=black>
+    <font face="Tahoma, sans-serif" size="1"> &copy; Все права защищены. </font>
+</div>
+</div>
+</font>
+</BODY>
+</HTML>

@@ -1,0 +1,153 @@
+<HTML>
+<HEAD>
+<TITLE> Заказать </TITLE>
+<link rel="icon" type="image/jpeg" href="jpg.png">
+<style>
+    body {
+        font-family: Tahoma, sans-serif;
+        background-image: url('sesh.jpg');
+        background-repeat: repeat;
+        background-position: center center;
+        margin: 0;
+        padding: 20px;
+        color: black;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .nav-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background-color: #000000;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        display: flex;
+        align-items: center;
+        z-index: 1000;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    .logo-container {
+    }
+    .logo {
+        height: 80px;
+        width: auto;
+    }
+    .nav-links {
+        display: flex;
+        gap: 5px;
+        margin-left: 20px;
+    }
+    .nav-links a {
+        display: inline-block;
+        padding: 12px 20px;
+        text-decoration: none;
+        color: #FFFFFF;
+        font-size: 15px;
+        font-weight: bold;
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, text-shadow 0.3s ease;
+        box-sizing: border-box;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+    }
+    .nav-links a:hover {
+        background-color: rgba(106, 10, 130, 0.6);
+        color: #FFFFFF;
+        border-color: #9370DB;
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    }
+    .nav-links a:active,
+    .nav-links a[aria-current="page"] {
+        background-color: rgba(50, 0, 100, 0.8);
+        color: #FFFFFF;
+        border-color: #FFFFFF;
+        font-style: italic;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+    }
+    .content-wrapper {
+        margin-top: 120px;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 8px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h1 {
+        text-align: center;
+        font-size: 28px;
+        color: #4B0082;
+        letter-spacing: 1px;
+        margin: 20px 0;
+    }
+    .form-container {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .form-container iframe {
+        width: 100%;
+        height: 800px;
+        border: 2px solid #4B0082;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .footer {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .footer font {
+        font-size: 12px;
+    }
+    .content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+</HEAD>
+<BODY>
+<font color="black">
+<div class="nav-wrapper">
+    <div class="logo-container">
+        <img src="logo.png" alt="Логотип" class="logo">
+    </div>
+    <div class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href= Info.html>Общая информация</a>
+        <a href= History.html> История</a>
+        <a href= Film.html> Видеоролик</a>
+        <a href= Disc.html> Плейлисты и синглы</a>
+        <a href= Link.html> Источники</a>
+        <a aria-current="page"> Заказать</a>
+		<a href= Contact.html> Контакты</a>
+    </div>
+</div>
+
+<div class="content-wrapper">
+    <h1>Заказать виниловые пластинки <span class="highlight-name">BONES</span></h1>
+
+    <div class="form-container">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc3nFKpiu7wrzHPA4NmALXo-FDd8NlnQhJHS_mCFap4X_mzvw/viewform?usp=dialog" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+    </div>
+
+</div>
+
+<div class="footer">
+    <hr align=center width=50% size=1 color=black>
+    <font face="Tahoma, sans-serif" size="1"> &copy; Все права защищены. </font>
+</div>
+</div>
+</font>
+</BODY>
+</HTML>

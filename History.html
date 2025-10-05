@@ -1,0 +1,370 @@
+<HTML>
+<HEAD>
+<TITLE> История </TITLE>
+<link rel="icon" type="image/jpeg" href="jpg.png">
+<style>
+    body {
+        font-family: Tahoma, sans-serif;
+        background-image: url('sesh.jpg');
+        background-repeat: repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+        color: black;
+        min-height: 100vh;
+        padding-top: 100px;
+    }
+    .nav-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background-color: #000000;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        display: flex;
+        align-items: center;
+        z-index: 1000;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    .logo-container {
+    }
+    .logo {
+        height: 80px;
+        width: auto;
+    }
+    .nav-links {
+        display: flex;
+        gap: 5px;
+        margin-left: 20px;
+    }
+    .nav-links a {
+        display: inline-block;
+        padding: 12px 20px;
+        text-decoration: none;
+        color: #FFFFFF;
+        font-size: 15px;
+        font-weight: bold;
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, text-shadow 0.3s ease;
+        box-sizing: border-box;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+    }
+    .nav-links a:hover {
+        background-color: rgba(106, 10, 130, 0.6);
+        color: #FFFFFF;
+        border-color: #9370DB;
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    }
+    .nav-links a:active,
+    .nav-links a[aria-current="page"] {
+        background-color: rgba(50, 0, 100, 0.8);
+        color: #FFFFFF;
+        border-color: #FFFFFF;
+        font-style: italic;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+    }
+    .content-wrapper {
+        padding: 20px;
+        background-color: rgba(40, 40, 40, 0.75);
+        border-radius: 8px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        margin: 0 20px 20px 20px;
+        color: #DDDDDD;
+    }
+     .content p {
+        font-family: Tahoma, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        color: #EEEEEE;
+    }
+    .highlight-name {
+        font-weight: bold;
+        color: #9370DB;
+    }
+    .highlight-term {
+        font-style: italic;
+        font-weight: bold;
+        color: #BA55D3;
+    }
+    .highlight-concept {
+        background-color: #444444;
+        padding: 2px 4px;
+        border-radius: 3px;
+        font-weight: bold;
+        color: #DDDDDD;
+    }
+    .footer {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .footer font {
+        font-size: 12px;
+        color: #AAAAAA;
+    }
+    .content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h1 {
+        text-align: center;
+        font-size: 28px;
+        color: #9370DB;
+        letter-spacing: 1px;
+        margin: 20px 0;
+    }
+    h2 {
+        text-align: center;
+        font-size: 24px;
+        color: #BA55D3;
+        margin: 15px 0;
+    }
+    .toc {
+        list-style-type: none;
+        padding: 0;
+        margin: 20px 0;
+        text-align: center;
+        width: 100%;
+    }
+    .toc li {
+        display: inline-block;
+        margin: 5px;
+    }
+    .toc a {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 5px 0;
+        text-decoration: none;
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #4d4d4d;
+        border: 1px solid #333333;
+        border-radius: 6px;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+        box-sizing: border-box;
+    }
+    .toc a:hover {
+        background-color: #666666;
+        color: #FFFFFF;
+        border-color: #555555;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    .toc a:active {
+        background-color: #333333;
+        color: #CCCCCC;
+        border-color: #222222;
+        transform: translateY(0);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+    .section-header {
+        display: inline-block;
+        padding: 8px 15px;
+        margin: 10px 0;
+        background-color: #4B0082;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    .video-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        border: 2px solid #4B0082;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: #444444;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .video-table th, .video-table td {
+        padding: 10px 10px;
+        text-align: center;
+        vertical-align: middle;
+        border: none;
+        font-size: 17px;
+        color: #EEEEEE;
+    }
+    .video-table th {
+        background-color: rgba(75, 0, 130, 0.8);
+        font-weight: bold;
+        color: white;
+        font-size: 18px;
+    }
+    .video-table tr {
+        border-bottom: 1px solid #555555;
+    }
+    .video-table tr:last-child {
+        border-bottom: none;
+    }
+    .video-table tr:hover {
+        background-color: rgba(100, 100, 120, 0.3);
+    }
+    .video-info-cell {
+        width: 30%;
+    }
+    .video-year-cell {
+        width: 10%;
+        text-align: center;
+        font-weight: bold;
+        color: #9370DB;
+        font-size: 17px;
+    }
+    .video-embed-cell {
+        width: 60%;
+        text-align: center;
+    }
+    iframe {
+        max-width: 100%;
+        width: 640px;
+        height: 360px;
+        border: 2px solid #4B0082;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    .video-info-cell .artist {
+        font-weight: bold;
+        color: #9370DB;
+        font-size: 17px;
+        margin: 0;
+        line-height: 1.2;
+        display: inline;
+    }
+    .video-info-cell .separator {
+        color: #CCCCCC;
+        margin: 0 4px;
+        font-size: 17px;
+        display: inline;
+    }
+    .video-info-cell .title {
+        font-style: italic;
+        color: #BA55D3;
+        font-size: 17px;
+        margin: 0;
+        line-height: 1.2;
+        display: inline;
+    }
+
+    .back-to-top-wrapper {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .back-to-top {
+        display: inline-block;
+        padding: 12px 25px;
+        text-decoration: none;
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: bold;
+        background: linear-gradient(to bottom, #4B0082, #2E0854);
+        border: 2px solid #9370DB;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        cursor: pointer;
+    }
+    .back-to-top:hover {
+        background: linear-gradient(to bottom, #6A5ACD, #4B0082);
+        color: #FFFFFF;
+        border-color: #BA55D3;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        transform: translateY(-3px);
+    }
+    .back-to-top:active {
+        background: linear-gradient(to bottom, #2E0854, #1A0430);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        transform: translateY(1px);
+    }
+</style>
+</HEAD>
+<BODY>
+<font color="#DDDDDD">
+<div class="nav-wrapper">
+    <div class="logo-container">
+        <img src="logo.png" alt="Логотип" class="logo">
+    </div>
+    <div class="nav-links">
+        <a href="index.html"> Главная</a>
+        <a href= Info.html>Общая информация</a>
+        <a aria-current="page"> История</a>
+        <a href= Film.html> Видеоролик</a>
+        <a href= Disc.html> Плейлисты и синглы</a>
+        <a href= Link.html> Источники</a>
+        <a href= Shop.html> Заказать</a>
+        <a href= Contact.html> Контакты</a>
+    </div>
+</div>
+
+<div class="content-wrapper">
+<div class="content">
+    <h1>История <span class="highlight-name">BONES</span></h1>
+    <h2>Содержание</h2>
+    <ul class="toc">
+        <li><a href="#c1">Детство</a></li>
+        <li><a href="#c2">Ранняя карьера</a></li>
+        <li><a href="#c3">Музыкальный стиль и влияние</a></li>
+        <li><a href="#c4">Актёрская карьера</a></li>
+        <li><a href="#c5">Личная жизнь</a></li>
+    </ul>
+
+    <p class="section-header"> <a name="c1"></a>Детство</p>
+    <p align="justify"> <FONT face = "Tahoma, sans-serif" size = 4>Элмо Кеннеди О’Коннор, более известный под сценическим именем <span class="highlight-name">BONES</span>, родился 11 января 1994 года в Мьюир-Бич, Калифорния. В возрасте семи лет он переехал со своей семьёй в Хауэлл, штат Мичиган, где и прошло большинство его подростковых лет. Этот переезд оказал значительное влияние на его мировоззрение и музыкальную идентичность, сформировав у него образ «аутсайдера» в культурном и социальном контексте.</FONT></p>
+    <p align="justify"> <FONT face = "Tahoma, sans-serif" size = 4>В детстве <span class="highlight-name">BONES</span> сталкивался с агрессией и издевательствами: в одном из интервью он рассказывал, что его избивали в школе в Мичигане, что сильно повлияло на его характер и творчество.</FONT></p>
+    <p align="justify"> <FONT face = "Tahoma, sans-serif" size = 4>В возрасте 16 лет он бросил школу, чтобы полностью посвятить себя музыке.</FONT></p>
+
+    <p class="section-header"> <a name="c2"></a>Ранняя карьера</p>
+    <p align="justify"> <FONT face = "Tahoma, sans-serif" size = 4>Музыкальную карьеру Элмо начал под псевдонимом Th@ Kid, но вскоре сменил его на <span class="highlight-name">BONES</span> — имя, которое быстро стало узнаваемым в андеграунд-среде.</FONT></p>
+    <p align="justify"> <FONT face = "Tahoma, sans-serif" size = 4>В 2011 году он основал музыкальный коллектив <span class="highlight-concept">TeamSESH</span>, который стал не только платформой для его собственных релизов, но и сообществом независимых артистов, разделяющих DIY-эстетику.</FONT></p>
+    <p align="justify"> <FONT face = "Tahoma, sans-serif" size = 4>Первый трек <span class="highlight-concept">TeamSESH</span> под названием «Honesht» вышел 12 февраля 2011 года, положив начало активной творческой деятельности коллектива.</FONT></p>
+    <p align="justify"> <FONT face = "Tahoma, sans-serif" size = 4>Уже к 2014 году <span class="highlight-name">BONES</span> начал набирать популярность благодаря уникальному звучанию и активному присутствию в интернете. Он сознательно избегал сотрудничества с крупными лейблами, предпочитая выпускать музыку самостоятельно через собственный коллектив.</FONT></p>
+    <p align="justify"> <FONT face = "Tahoma, sans-serif" size = 4>На протяжении 2010-х годов он выпустил множество альбомов и микстейпов, включая такие проекты, как <span class="highlight-term">Burden</span>, <span class="highlight-term">FromBeyondTheGrave</span>, <span class="highlight-term">PushingUpDaisies</span> и другие, укрепляя статус одного из главных представителей андеграунд-рэпа.</FONT></p>
+    <p align="justify"> <FONT face = "Tahoma, sans-serif" size = 4>В 2024–2025 годах он продолжил активную деятельность, выпустив альбомы <span class="highlight-term">CADAVER</span> (октябрь 2024) и <span class="highlight-term">DEMO</span> совместно с <span class="highlight-name">Brevin Kim</span> (февраль 2025).</FONT></p>
+
+    <p class="section-header"> <a name="c3"></a>Музыкальный стиль и влияние</p>
+    <p align="justify"> <FONT face = "Tahoma, sans-serif" size = 4>Музыка <span class="highlight-name">BONES</span> трудно поддаётся жанровой классификации. Его стиль объединяет элементы <span class="highlight-term">эмо-рэпа</span>, <span class="highlight-term">лоу-фай хип-хопа</span>, <span class="highlight-term">индастриала</span>, <span class="highlight-term">панк-рока</span> и даже <span class="highlight-term">метала</span>.</FONT></p>
+    <p align="justify"> <FONT face = "Tahoma, sans-serif" size = 4>Он считается одним из пионеров <span class="highlight-term">эмо-рэпа</span>, оказав значительное влияние на формирование этого направления.</FONT></p>
+    <p align="justify"> <FONT face = "Tahoma, sans-serif" size = 4>Несмотря на то, что сам <span class="highlight-name">BONES</span> редко называет конкретных музыкальных кумиров, его звучание отражает влияние <span class="highlight-term">панк-рок-эстетики</span>, <span class="highlight-term">южного рэпа</span> и <span class="highlight-term">агрессивного андеграунда</span>.</FONT></p>
+    <p align="justify"> <FONT face = "Tahoma, sans-serif" size = 4>Его тексты часто наполнены <span class="highlight-term">меланхолией</span>, <span class="highlight-term">экзистенциальными размышлениями</span> и <span class="highlight-term">бунтарским духом</span>, что находит отклик у молодой аудитории, ищущей <span class="highlight-term">искренности</span> и <span class="highlight-term">аутентичности</span>.</FONT></p>
+    <p align="justify"> <FONT face = "Tahoma, sans-serif" size = 4>Особенностью его творчества является полная независимость: он сотрудничает преимущественно с продюсерами из своего окружения, такими как <span class="highlight-name">Musa</span>, <span class="highlight-name">Vegard</span> и другими участниками <span class="highlight-concept">TeamSESH</span>, сохраняя контроль над каждым аспектом своего артистического образа.</FONT></p>
+
+    <p class="section-header"> <a name="c4"></a>Актёрская карьера</p>
+    <p align="justify"> <FONT face = "Tahoma, sans-serif" size = 4>В отличие от <span class="highlight-name">Machine Gun Kelly</span>, <span class="highlight-name">BONES</span> не известен как актёр. На данный момент нет достоверной информации о его участии в кино, сериалах или театральных проектах. Вся его творческая энергия сосредоточена на музыке, визуальной эстетике и развитии бренда <span class="highlight-concept">TeamSESH</span>.</FONT></p>
+
+    <p class="section-header"> <a name="c5"></a>Личная жизнь</p>
+    <p align="justify"> <FONT face = "Tahoma, sans-serif" size = 4><span class="highlight-name">BONES</span> ведёт крайне закрытый образ жизни и редко делится подробностями о своей личной жизни в публичном пространстве. Однако в сентябре 2023 года в социальных сетях появилась информация о том, что он женился. Подробности о его супруге и семейной жизни остаются приватными.</FONT></p>
+    <p align="justify"> <FONT face = "Tahoma, sans-serif" size = 4>Он также известен своей преданностью коллективу <span class="highlight-concept">TeamSESH</span>, часто называя друзей и соратников по музыке своей «настоящей семьёй».</FONT></p>
+    <p align="justify"> <FONT face = "Tahoma, sans-serif" size = 4>Его образ жизни и философия тесно связаны с идеями <span class="highlight-term">независимости</span>, <span class="highlight-term">творческой свободы</span> и <span class="highlight-term">отказа от мейнстрима</span>.</FONT></p>
+
+    <div class="back-to-top-wrapper">
+        <a href="#top" class="back-to-top">Наверх</a>
+    </div>
+
+</div>
+
+<div class="footer">
+    <hr align=center width=50% size=1 color=#555555>
+    <font face="Tahoma, sans-serif" size="1"> &copy; Все права защищены. </font>
+</div>
+</div>
+</font>
+</BODY>
+</HTML>

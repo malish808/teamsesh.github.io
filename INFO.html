@@ -1,0 +1,233 @@
+<HTML>
+<HEAD>
+<TITLE> Общая информация </TITLE>
+<link rel="icon" type="image/jpeg" href="jpg.png">
+<style>
+    body {
+        font-family: Tahoma, sans-serif;
+        background-image: url('sesh.jpg');
+        background-repeat: repeat;
+        background-position: center center;
+        margin: 0;
+        padding: 0;
+        color: black;
+        min-height: 100vh;
+        padding-top: 100px;
+        background-attachment: fixed;
+        background-size: auto;
+    }
+    .nav-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background-color: #000000;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        display: flex;
+        align-items: center;
+        z-index: 1000;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    .logo-container {
+    }
+    .logo {
+        height: 80px;
+        width: auto;
+    }
+    .nav-links {
+        display: flex;
+        gap: 5px;
+        margin-left: 20px;
+    }
+    .nav-links a {
+        display: inline-block;
+        padding: 12px 20px;
+        text-decoration: none;
+        color: #FFFFFF;
+        font-size: 15px;
+        font-weight: bold;
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, text-shadow 0.3s ease;
+        box-sizing: border-box;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+    }
+    .nav-links a:hover {
+        background-color: rgba(106, 10, 130, 0.6);
+        color: #FFFFFF;
+        border-color: #9370DB;
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    }
+    .nav-links a:active,
+    .nav-links a[aria-current="page"] {
+        background-color: rgba(50, 0, 100, 0.8);
+        color: #FFFFFF;
+        border-color: #FFFFFF;
+        font-style: italic;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+    }
+     .content-wrapper {
+        padding: 20px;
+        background-color: rgba(40, 40, 40, 0.75);
+        border-radius: 8px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        margin: 0 20px 20px 20px;
+        color: #DDDDDD;
+    }
+    .content p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+    .highlight-name {
+        font-weight: bold;
+        color: #9370DB;
+    }
+    .highlight-term {
+        font-style: italic;
+        font-weight: bold;
+        color: #800080;
+    }
+    .highlight-concept {
+        background-color: #9370DB;
+        padding: 2px 4px;
+        border-radius: 3px;
+        font-weight: bold;
+    }
+    .footer {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .footer font {
+        font-size: 12px;
+    }
+    .content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h1 {
+        text-align: center;
+        font-size: 28px;
+        color: #E6E6FA;
+        letter-spacing: 1px;
+        margin: 20px 0;
+    }
+    h2 {
+        text-align: center;
+        font-size: 24px;
+        color: #6A5ACD;
+        margin: 15px 0;
+    }
+    .intro-text {
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        margin: 20px 0;
+        color: #FFFFFF;
+    }
+    .section {
+        margin-bottom: 30px;
+        padding: 15px;
+        border-left: 3px solid #4B0082;
+        background-color: rgba(248, 248, 255, 0.4);
+        border-radius: 0 8px 8px 0;
+    }
+    .section h3 {
+        color: #4B0082;
+        margin-top: 0;
+    }
+    ul {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-left: 20px;
+    }
+    li {
+        margin-bottom: 8px;
+    }
+</style>
+</HEAD>
+<BODY>
+<font color="black">
+<div class="nav-wrapper">
+    <div class="logo-container">
+        <img src="logo.png" alt="Логотип" class="logo">
+    </div>
+    <div class="nav-links">
+        <a href="index.html"> Главная</a>
+        <a aria-current="page">Общая информация</a>
+        <a href= History.html> История</a>
+        <a href= Film.html> Видеоролик</a>
+        <a href= Disc.html> Плейлисты и синглы</a>
+        <a href= Link.html> Источники</a>
+        <a href= Shop.html> Заказать</a>
+        <a href= Contact.html> Контакты</a>
+    </div>
+</div>
+
+<div class="content-wrapper">
+<div class="content">
+    <h1>Кто же он такой? <span class="highlight-name">BONES</span></h1>
+
+    <p class="intro-text">
+        <span class="highlight-name">Элмо Кеннеди О’Коннор</span>, более известный под сценическим именем <span class="highlight-name" >BONES</span>,
+        — американский рэпер, певец и автор песен.
+    </p>
+
+    <div class="section">
+        <h3>Основная Информация</h3>
+        <ul>
+            <li><strong>Настоящее имя:</strong> Элмо Кеннеди О’Коннор (Elmo Kennedy O'Connor)</li>
+            <li><strong>Дата рождения:</strong> 11 января 1994 года</li>
+            <li><strong>Место рождения:</strong> Мьюир-Бич, Калифорния, США</li>
+            <li><strong>Род занятий:</strong> Рэпер, певец, автор песен, продюсер</li>
+            <li><strong>Жанры:</strong> Эмо-рэп, лоу-фай хип-хоп, индастриал, панк-рок, металл</li>
+            <li><strong>Группа/Коллектив:</strong> Основатель и лидер андеграундного коллектива <span class="highlight-concept">TeamSESH</span></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Карьера и Особенности</h3>
+        <ul>
+            <li>Начал карьеру под ником <span class="highlight-term">Th@ Kid</span>, позже сменил его на <span class="highlight-name">BONES</span>.</li>
+            <li>Известен своей независимостью и DIY-подходом (Do It Yourself - "Сделай сам").</li>
+            <li>Создал и возглавляет музыкальный лейбл <span class="highlight-concept">TeamSESH</span>, который стал платформой для независимых артистов.</li>
+            <li>Выпускает музыку самостоятельно, избегая сотрудничества с крупными мейнстрим-лейблами.</li>
+            <li>Его музыкальный стиль трудно классифицировать, сочетая элементы различных жанров.</li>
+            <li>Творчество часто отражает меланхолию, внутренние переживания и бунтарский дух.</li>
+            <li>Нашел свою аудиторию в интернете, став культовой фигурой андеграунд-рэпа.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Личность и Влияние</h3>
+        <ul>
+            <li>Вырос в Хауэлле, штат Мичиган, что повлияло на его мировоззрение и музыкальную идентичность.</li>
+            <li>Часто называет себя "аутсайдером" и пропагандирует независимость от мейнстрима.</li>
+            <li>Является пионером жанра <span class="highlight-term">эмо-рэп</span> и оказал значительное влияние на его развитие.</li>
+            <li>Его творчество находит отклик у молодого поколения, ищущего аутентичности и искренности в музыке.</li>
+            <li>Ведет закрытый образ жизни, редко делясь личной информацией в публичном пространстве.</li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="footer">
+    <hr align=center width=50% size=1 color=black>
+    <font size="1"> &copy; Все права защищены. </font>
+</div>
+</div>
+</font>
+</BODY>
+</HTML>
